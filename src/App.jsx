@@ -6,7 +6,8 @@ export const App = () => {
   return (
     <div
     >
-   <UserProfile {...user} />
+      <UserProfile {...user} />
+
       
 
 
