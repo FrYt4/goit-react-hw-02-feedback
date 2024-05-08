@@ -1,23 +1,27 @@
 import PropTypes from "prop-types";
 import css from "./statistics.module.css";
 
+const Statistics = ({ title, stats }) => {
+  const generateRandomColor = () => {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  };
 
-const Statistic = ({ stats, title }) => {
   return (
     <section className={css.statistics}>
-      {title && <h2 className={css.title}>{title}</h2>}
-      <ul className={css.stat}>
-        {stats.map((stat) => (
-          <li key={stat.id} className={css.item}>
-            <span className={css.label}>{stat.label} </span>
-            <span className={css.percentage}>{stat.percentage}</span>
+          {title && <h2 className={css.title}>{title}</h2>}
+          <ul className={css.stat}>
+        {stats.map(({ id, label, percentage }) => (
+            <li key={id} className={css.item} style={{ backgroundColor: generateRandomColor() }}>
+            <span className={css.label}>{label}</span>
+                <span className={css.percentage}>{percentage}%</span>
           </li>
         ))}
       </ul>
     </section>
   );
 };
-Statistic.propTypes = {
+
+Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
@@ -28,4 +32,4 @@ Statistic.propTypes = {
   ).isRequired,
 };
 
-export default Statistic;
+export default Statistics;
