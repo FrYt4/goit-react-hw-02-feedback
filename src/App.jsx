@@ -1,16 +1,16 @@
+import UserProfile from "components/profile/profile";
+import user from "./assets/user.json";
+
+
 export const App = () => {
   return (
     <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
     >
-      goit-react-hw-01-components
+   <UserProfile {...user} />
+      
+
+
+
     </div>
   );
 };
