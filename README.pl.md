@@ -46,7 +46,7 @@ pisz kod, rób commity i wysyłaj na GitHub.
 
 ## Deployment
 
-Produkcyjna wersja projektu będzie automatycznie poddana pracy lintera, budowana
+Produkcyjna wersja projektu będzie automatycznie poddana pracy lintera, budowan
 i deployowana na GitHub Pages, w gałęzi `gh-pages` za każdym razem, gdy
 aktualizuje się gałąź `main`, na przykład po bezpośrednim pushu lub przyjętym
 pull requeście. W tym celu należy w pliku `package.json` zredagować pole
