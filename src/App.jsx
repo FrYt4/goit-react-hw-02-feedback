@@ -1,38 +1,45 @@
-import { Feedback } from "./components/feedback"
-import { Statistics } from "./components/statisctics";
 import React, { useState } from 'react';
-
+import { Feedback } from './components/Feedback';
+import { Statistics } from './components/Statistics';
 
 export const App = () => {
-
-  const [ good, setGood ]= useState(0)
-  const [ neutral, setNeutral ]= useState(0)
-  const [bad, setBad] = useState(0)
-  const [value, setValue] = useState(0)
-  const [result] = useState(0)
-  
+    const [good, setGood] = useState(0);
+    const [neutral, setNeutral] = useState(0);
+    const [bad, setBad] = useState(0);
+    const [value, setValue] = useState(0);
 
     const onClickGood = () => {
-      setGood(prevValue => prevValue + 1)
-    }  
-    
-    const onClicNeutral = () => {
-        setNeutral(prevValue =>prevValue+1)
-    } 
-    
-    const onClicBad = () => {
-        setBad(prevValue =>prevValue+1)
-    }  
-    
-    const countTotalFeedback=() => {
-      setValue(prevValue => prevValue + 1)
-  }
-  
-  
-  return (
-    <>
-    <Feedback  good={good} value={value} result={result} onClickGood={onClickGood} onClicNeutral={onClicNeutral} onClicBad={onClicBad} totalClick={countTotalFeedback} />
-    <Statistics good={good} neutral={neutral} bad={bad} value={value} result={result} />
-    </>
-  );
+        setGood(prevValue => prevValue + 1);
+        countTotalFeedback();
+    };
+
+    const onClickNeutral = () => {
+        setNeutral(prevValue => prevValue + 1);
+        countTotalFeedback();
+    };
+
+    const onClickBad = () => {
+        setBad(prevValue => prevValue + 1);
+        countTotalFeedback();
+    };
+
+    const countTotalFeedback = () => {
+        setValue(prevValue => prevValue + 1);
+    };
+
+    return (
+        <>
+            <Feedback
+                onClickGood={onClickGood}
+                onClickNeutral={onClickNeutral}
+                onClickBad={onClickBad}
+            />
+            <Statistics
+                good={good}
+                neutral={neutral}
+                bad={bad}
+                value={value}
+            />
+        </>
+    );
 };
