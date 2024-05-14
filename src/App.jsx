@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Feedback } from './components/Feedback';
-import { Statistics } from './components/Statistics';
+import { Feedback } from './components/feedback';
+import { Statistics } from './components/statisctics';
 
 export const App = () => {
     const [good, setGood] = useState(0);
