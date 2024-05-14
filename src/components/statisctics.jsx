@@ -1,3 +1,7 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+
 export const Statistics = ({ good, neutral, bad, value, result }) => {
     result = 0;
 
@@ -19,9 +23,16 @@ export const Statistics = ({ good, neutral, bad, value, result }) => {
                 <p>Good: {good}</p>
                 <p>Neutral: {neutral}</p>
                 <p>Bad: {bad}</p>
-                <p>Value: {value}</p>
-                <p>Result: {result}</p>
+                <p>Total: {value}</p>
+                <p>Positive feedback: {result}</p>
             </div>
         )
     }
 }
+
+Statistics.propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+};
